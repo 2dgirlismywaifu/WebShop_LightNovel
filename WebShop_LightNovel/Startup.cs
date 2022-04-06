@@ -63,7 +63,7 @@ namespace EShop
                 });
             #endregion
 
-            services.AddDbContext<EcommerceVer2Context>(options =>
+            services.AddDbContext<WebNovel>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("EShopDb")));
             services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.All }));
             services.AddControllersWithViews().AddRazorRuntimeCompilation().AddSessionStateTempDataProvider();

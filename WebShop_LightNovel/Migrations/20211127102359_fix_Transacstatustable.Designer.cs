@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EShop.Migrations
 {
-    [DbContext(typeof(EcommerceVer2Context))]
+    [DbContext(typeof(WebNovel))]
     [Migration("20211127102359_fix_Transacstatustable")]
     partial class fix_Transacstatustable
     {

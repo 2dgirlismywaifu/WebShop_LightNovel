@@ -15,10 +15,10 @@ namespace EShop.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminOrdersController : Controller
     {
-        private readonly EcommerceVer2Context _context;
+        private readonly WebNovel _context;
         private readonly IEmailSender _emailSender;
 
-        public AdminOrdersController(EcommerceVer2Context context, IEmailSender emailSender)
+        public AdminOrdersController(WebNovel context, IEmailSender emailSender)
         {
             _emailSender = emailSender;
             _context = context;

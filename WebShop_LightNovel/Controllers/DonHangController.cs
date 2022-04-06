@@ -13,10 +13,10 @@ namespace EShop.Controllers
 {
     public class DonHangController : Controller
     {
-        private readonly EcommerceVer2Context _context;
+        private readonly WebNovel _context;
         public INotyfService _notyfService { get; } //Import services
 
-        public DonHangController(EcommerceVer2Context context, INotyfService notyfService)
+        public DonHangController(WebNovel context, INotyfService notyfService)
         {
             _notyfService = notyfService;
             _context = context;

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EShop.Migrations
 {
-    [DbContext(typeof(EcommerceVer2Context))]
+    [DbContext(typeof(WebNovel))]
     [Migration("20211118101238_BrandModel")]
     partial class BrandModel
     {

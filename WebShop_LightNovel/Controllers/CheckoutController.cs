@@ -19,14 +19,14 @@ namespace EShop.Controllers
 {
     public class CheckoutController : Controller
     {
-        private readonly EcommerceVer2Context _context;
+        private readonly WebNovel _context;
         public INotyfService _notyfService { get; } //Import services
         private readonly string _clientId;
         private readonly string _sercretKey;
 
         public decimal TygiaUSD = 23000;
 
-        public CheckoutController(EcommerceVer2Context context, INotyfService notyfService, IConfiguration config)
+        public CheckoutController(WebNovel context, INotyfService notyfService, IConfiguration config)
         {
             _notyfService = notyfService;
             _context = context;

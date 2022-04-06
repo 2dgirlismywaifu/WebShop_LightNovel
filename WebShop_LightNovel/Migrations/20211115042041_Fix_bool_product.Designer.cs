@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EShop.Migrations
 {
-    [DbContext(typeof(EcommerceVer2Context))]
+    [DbContext(typeof(WebNovel))]
     [Migration("20211115042041_Fix_bool_product")]
     partial class Fix_bool_product
     {

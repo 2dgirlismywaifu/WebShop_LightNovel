@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EShop.Migrations
 {
-    [DbContext(typeof(EcommerceVer2Context))]
+    [DbContext(typeof(WebNovel))]
     partial class EcommerceVer2ContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

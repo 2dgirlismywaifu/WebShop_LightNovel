@@ -15,8 +15,8 @@ namespace EShop.Areas.Admin.Controllers
     [Route("Admin/Dashboard")]
     public class HomeController : Controller
     {
-        private readonly EcommerceVer2Context _context;
-        public HomeController(EcommerceVer2Context context)
+        private readonly WebNovel _context;
+        public HomeController(WebNovel context)
         {
             _context = context;
         }

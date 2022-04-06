@@ -17,11 +17,11 @@ namespace EShop.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminCategoriesController : Controller
     {
-        private readonly EcommerceVer2Context _context;
+        private readonly WebNovel _context;
         public static string image;
         public INotyfService _notyfService { get; }
 
-        public AdminCategoriesController(EcommerceVer2Context context, INotyfService notyfService)
+        public AdminCategoriesController(WebNovel context, INotyfService notyfService)
         {
             _notyfService = notyfService;
             _context = context;

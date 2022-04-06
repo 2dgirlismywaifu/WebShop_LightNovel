@@ -21,11 +21,11 @@ namespace EShop.Controllers
     [Authorize]
     public class AccountsController : Controller
     {
-        private readonly EcommerceVer2Context _context;
+        private readonly WebNovel _context;
         public INotyfService _notyfService { get; } //Import services
         public static string image;
 
-        public AccountsController(EcommerceVer2Context context, INotyfService notyfService)
+        public AccountsController(WebNovel context, INotyfService notyfService)
         {
             _notyfService = notyfService;
             _context = context;

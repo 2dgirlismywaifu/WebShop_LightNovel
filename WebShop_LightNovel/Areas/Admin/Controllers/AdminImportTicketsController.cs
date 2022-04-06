@@ -12,9 +12,9 @@ namespace EShop.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminImportTicketsController : Controller
     {
-        private readonly EcommerceVer2Context _context;
+        private readonly WebNovel _context;
 
-        public AdminImportTicketsController(EcommerceVer2Context context)
+        public AdminImportTicketsController(WebNovel context)
         {
             _context = context;
         }

@@ -13,7 +13,7 @@ namespace EShop.Controllers
 {
     public class ShopCartController : Controller
     {
-        private readonly EcommerceVer2Context _context;
+        private readonly WebNovel _context;
         public INotyfService _notyfService { get; } //Import services
         private readonly IConfiguration _config;
 
@@ -22,7 +22,7 @@ namespace EShop.Controllers
 
         public decimal TygiaUSD = 23000;
 
-        public ShopCartController(EcommerceVer2Context context, INotyfService notyfService, IConfiguration config)
+        public ShopCartController(WebNovel context, INotyfService notyfService, IConfiguration config)
         {
             _notyfService = notyfService;
             _context = context;

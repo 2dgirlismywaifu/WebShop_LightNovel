@@ -12,9 +12,9 @@ namespace EShop.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly EcommerceVer2Context _context;
+        private readonly WebNovel _context;
 
-        public ProductsController(EcommerceVer2Context context)
+        public ProductsController(WebNovel context)
         {
             _context = context;
         }

@@ -19,11 +19,11 @@ namespace EShop.Areas.Admin.Controllers
     [Route("Admin/Login")]
     public class LoginController : Controller
     {
-        private readonly EcommerceVer2Context _context;
+        private readonly WebNovel _context;
         public INotyfService _notyfService { get; } //Import services
         public static string image;
 
-        public LoginController(EcommerceVer2Context context, INotyfService notyfService)
+        public LoginController(WebNovel context, INotyfService notyfService)
         {
             _notyfService = notyfService;
             _context = context;

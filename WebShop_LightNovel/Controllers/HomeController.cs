@@ -14,9 +14,9 @@ namespace EShop.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly EcommerceVer2Context _context;
+        private readonly WebNovel _context;
 
-        public HomeController(ILogger<HomeController> logger, EcommerceVer2Context context)
+        public HomeController(ILogger<HomeController> logger, WebNovel context)
         {
             _context = context;
             _logger = logger;
