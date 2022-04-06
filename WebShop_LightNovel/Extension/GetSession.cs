@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace EShop.Extension
 {
+    //get session when login
     public static class GetSession
     {
         public static void Set<T>(this ISession session, string key, T value)

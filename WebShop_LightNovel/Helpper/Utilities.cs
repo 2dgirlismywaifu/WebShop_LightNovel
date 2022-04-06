@@ -11,6 +11,7 @@ namespace EShop.Helpper
 {
     public static class Utilities
     {
+        //price
         public static string ToVnd(this double donGia)
         {
             return donGia.ToString("#,##0") + " VNĐ";
@@ -47,7 +48,7 @@ namespace EShop.Helpper
             }
             return null;
         }
-
+        //encrypt password with RandomKey. Use MD5 for simple
         public static string GetRandomKey(int length = 5)
         {
             //chuỗi mẫu (pattern)
@@ -62,6 +63,7 @@ namespace EShop.Helpper
 
             return sb.ToString();
         }
+        //Running at background
         public static async Task<string> UploadFile(Microsoft.AspNetCore.Http.IFormFile file, string sDirectory, string newname = null)
         {
             try
@@ -95,6 +97,7 @@ namespace EShop.Helpper
             }
         }
 
+        //Method name: delete image
         public static void DeleteImage(string sDirectory, string imageName = null)
         {
             string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", sDirectory);
