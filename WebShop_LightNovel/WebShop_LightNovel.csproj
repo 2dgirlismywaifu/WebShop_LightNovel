@@ -6,9 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Admin\Data\**" />
     <Compile Remove="Enums\**" />
+    <Content Remove="Areas\Admin\Data\**" />
     <Content Remove="Enums\**" />
+    <EmbeddedResource Remove="Areas\Admin\Data\**" />
     <EmbeddedResource Remove="Enums\**" />
+    <None Remove="Areas\Admin\Data\**" />
     <None Remove="Enums\**" />
   </ItemGroup>
 
@@ -40,7 +44,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Data\" />
     <Folder Include="wwwroot\images\categories\" />
     <Folder Include="wwwroot\images\brands\" />
     <Folder Include="wwwroot\images\User\" />
