@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
-namespace EShop.Models
+namespace WebShopNovel.Models
 {
     public partial class Customer
     {

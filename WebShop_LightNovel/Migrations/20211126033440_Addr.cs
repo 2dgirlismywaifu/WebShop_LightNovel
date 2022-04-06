@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace EShop.Migrations
+namespace WebShopNovel.Migrations
 {
     public partial class Addr : Migration
     {

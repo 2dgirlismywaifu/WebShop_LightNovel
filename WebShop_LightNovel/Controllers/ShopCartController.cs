@@ -1,14 +1,14 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
-using EShop.Extension;
-using EShop.Models;
-using EShop.ViewModel;
+using WebShopNovel.Extension;
+using WebShopNovel.Models;
+using WebShopNovel.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EShop.Controllers
+namespace WebShopNovel.Controllers
 {
     public class ShopCartController : Controller
     {

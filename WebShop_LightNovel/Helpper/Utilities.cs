@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Globalization;
 
-namespace EShop.Helpper
+namespace WebShopNovel.Helpper
 {
     public static class Utilities
     {

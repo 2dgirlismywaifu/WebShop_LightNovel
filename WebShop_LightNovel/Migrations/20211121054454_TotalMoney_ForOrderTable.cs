@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace EShop.Migrations
+namespace WebShopNovel.Migrations
 {
     public partial class TotalMoney_ForOrderTable : Migration
     {

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace EShop.Models
+namespace WebShopNovel.Models
 {
     public partial class WebNovel : DbContext
     {

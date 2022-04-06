@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using EShop.Models;
+using WebShopNovel.Models;
 using PagedList.Core;
-using EShop.Helpper;
+using WebShopNovel.Helpper;
 using System.IO;
 using System.Globalization;
 using AspNetCoreHero.ToastNotification.Abstractions;
-using EShop.Extension;
+using WebShopNovel.Extension;
 using Microsoft.AspNetCore.Authorization;
 
-namespace EShop.Areas.Admin.Controllers
+namespace WebShopNovel.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminCustomersController : Controller

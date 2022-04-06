@@ -1,6 +1,6 @@
 ﻿using AspNetCoreHero.ToastNotification;
 using EmailServices;
-using EShop.Models;
+using WebShopNovel.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,7 +12,7 @@ using System;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 
-namespace EShop
+namespace WebShopNovel
 {
     public class Startup
     {
@@ -32,7 +32,7 @@ namespace EShop
             services.AddDistributedMemoryCache();
             services.AddSession(options =>
             {
-                options.Cookie.Name = ".EShop";
+                options.Cookie.Name = ".WebShopNovel";
                 options.IdleTimeout = TimeSpan.FromSeconds(300);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
@@ -64,7 +64,7 @@ namespace EShop
             #endregion
 
             services.AddDbContext<WebNovel>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("EShopDb")));
+                options.UseSqlServer(Configuration.GetConnectionString("WebShopNovelDb")));
             services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.All }));
             services.AddControllersWithViews().AddRazorRuntimeCompilation().AddSessionStateTempDataProvider();
             services.AddNotyf(config => { config.DurationInSeconds = 5; config.IsDismissable = false; config.Position = NotyfPosition.TopRight; });

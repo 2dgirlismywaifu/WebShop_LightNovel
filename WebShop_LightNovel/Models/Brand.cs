@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace EShop.Models
+namespace WebShopNovel.Models
 {
     public partial class Brand
     {

@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EShop.Extension
+namespace WebShopNovel.Extension
 {
     public static class HashMD5Pass
     {

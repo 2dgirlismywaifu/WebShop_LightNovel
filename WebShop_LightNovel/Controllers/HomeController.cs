@@ -1,4 +1,4 @@
-﻿using EShop.Models;
+﻿using WebShopNovel.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -9,7 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EShop.Controllers
+namespace WebShopNovel.Controllers
 {
     public class HomeController : Controller
     {

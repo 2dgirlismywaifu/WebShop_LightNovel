@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using EShop.Models;
+using WebShopNovel.Models;
 
-namespace EShop.Areas.Admin.Controllers
+namespace WebShopNovel.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminImportTicketsController : Controller

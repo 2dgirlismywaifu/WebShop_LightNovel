@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EShop.Extension
+namespace WebShopNovel.Extension
 {
     //get session when login
     public static class GetSession

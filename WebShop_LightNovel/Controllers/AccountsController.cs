@@ -1,8 +1,8 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
-using EShop.Extension;
-using EShop.Helpper;
-using EShop.Models;
-using EShop.ViewModel;
+using WebShopNovel.Extension;
+using WebShopNovel.Helpper;
+using WebShopNovel.Models;
+using WebShopNovel.ViewModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -16,7 +16,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace EShop.Controllers
+namespace WebShopNovel.Controllers
 {
     [Authorize]
     public class AccountsController : Controller

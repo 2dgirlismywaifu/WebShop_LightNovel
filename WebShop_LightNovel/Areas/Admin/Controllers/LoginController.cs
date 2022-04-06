@@ -1,7 +1,7 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
-using EShop.Extension;
-using EShop.Models;
-using EShop.ViewModel;
+using WebShopNovel.Extension;
+using WebShopNovel.Models;
+using WebShopNovel.ViewModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace EShop.Areas.Admin.Controllers
+namespace WebShopNovel.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/Login")]

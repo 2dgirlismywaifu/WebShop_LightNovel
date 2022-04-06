@@ -1,4 +1,4 @@
-﻿using EShop.Models;
+﻿using WebShopNovel.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EShop.Controllers
+namespace WebShopNovel.Controllers
 {
     public class ProductsController : Controller
     {

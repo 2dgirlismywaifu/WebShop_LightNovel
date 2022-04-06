@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using EShop.Models;
+using WebShopNovel.Models;
 using PagedList.Core;
 using EmailServices;
 using Microsoft.AspNetCore.Authorization;
 
-namespace EShop.Areas.Admin.Controllers
+namespace WebShopNovel.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdminOrdersController : Controller

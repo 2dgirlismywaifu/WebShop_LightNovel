@@ -1,6 +1,6 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
-using EShop.Models;
-using EShop.ViewModel;
+using WebShopNovel.Models;
+using WebShopNovel.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EShop.Controllers
+namespace WebShopNovel.Controllers
 {
     public class DonHangController : Controller
     {

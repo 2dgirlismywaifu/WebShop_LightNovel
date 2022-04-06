@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EShop.ViewModel
+namespace WebShopNovel.ViewModel
 {
     public class OrderViewModel
     {
