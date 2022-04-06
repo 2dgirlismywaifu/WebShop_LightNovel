@@ -117,7 +117,6 @@ namespace EShop.Controllers
         #endregion
 
         #region  //Edit
-        // GET: Admin/AdminCustomers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
