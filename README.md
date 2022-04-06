@@ -1,6 +1,6 @@
-# EShop
-
-
+# Webshop lightnovel
+Chào mứng đến với cơ hội thứ hai
+# Giữ lại thông tin cần thiết này
 Email support : laihuyha1111@gmail.com
 Zalo Suppot : 0968454617
 
