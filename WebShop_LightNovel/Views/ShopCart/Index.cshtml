@@ -60,11 +60,11 @@
                                 </ul>
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <a href="/checkout.html">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="/checkout">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
                                 }
                                 else
                                 {
-                                    <a href="/login.html?returnUrl=/checkout.html">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="/login?returnUrl=/checkout">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
                                 }
                             </div>
                         </div>

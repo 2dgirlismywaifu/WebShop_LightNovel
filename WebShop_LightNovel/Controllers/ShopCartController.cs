@@ -7,7 +7,6 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace EShop.Controllers
 {
@@ -48,9 +47,9 @@ namespace EShop.Controllers
 
         private int Exists(List<CartItem> carts, int id)
         {
-            for(var i = 0; i < carts.Count; i++)
+            for (var i = 0; i < carts.Count; i++)
             {
-                if(carts[i].product.ProductId == id)
+                if (carts[i].product.ProductId == id)
                 {
                     return i;
                 }
@@ -73,7 +72,7 @@ namespace EShop.Controllers
                 CartItem item = GioHang.SingleOrDefault(x => x.product.ProductId == productId);
                 if (carts == null)
                 {
-                   
+
                     carts.Add(new CartItem
                     {
                         Qty = qty.HasValue ? qty.Value : 1,
@@ -83,7 +82,7 @@ namespace EShop.Controllers
                 else
                 {
                     int index = Exists(carts, productId);
-                    if(index == -1)
+                    if (index == -1)
                     {
                         carts.Add(new CartItem
                         {
@@ -169,7 +168,7 @@ namespace EShop.Controllers
         }
         #endregion
 
-        [Route("CartItem.html", Name = "GioHang")]
+        [Route("CartItem", Name = "GioHang")]
         public IActionResult Index()
         {
             return View(GioHang);

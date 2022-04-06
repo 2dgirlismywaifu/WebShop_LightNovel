@@ -50,15 +50,15 @@ namespace EShop.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [Route("SmartPhoneColection.html", Name = "SmartPhoneColection")]
-        public IActionResult SmartPhoneColection(int? page)
+        [Route("CNNovelColection", Name = "CNNovelColection")]
+        public IActionResult CNNovelColection(int? page)
         {
             var pageNo = page == null || page <= 0 ? 1 : page.Value;
             var pageSize = 6;
             var lstSmartPhone = _context.Products
                 .AsNoTracking()
                 .Include(a => a.Cate)
-                .Where(a => a.IsActived && a.UnitInStock > 0 && a.Cate.CategoryName == "SmartPhone" && a.Homeflag == true)
+                .Where(a => a.IsActived && a.UnitInStock > 0 && a.Cate.CategoryName == "Novel Trung Quốc" && a.Homeflag == true)
                 .Include(a => a.Brand)
                 .OrderByDescending(a => a.DateCreated);
             PagedList<Product> model = new PagedList<Product>(lstSmartPhone, pageNo, pageSize);
@@ -66,15 +66,15 @@ namespace EShop.Controllers
             return View(model);
         }
 
-        [Route("PhuKienColection.html", Name = "PhuKienColection")]
-        public IActionResult PhuKienColection(int? page)
+        [Route("KRNovelColection", Name = "KRNovelColection")]
+        public IActionResult KRNovelColection(int? page)
         {
             var pageNo = page == null || page <= 0 ? 1 : page.Value;
             var pageSize = 6;
             var lstPhuKien = _context.Products
                 .AsNoTracking()
                 .Include(a => a.Cate)
-                .Where(a => a.IsActived && a.Cate.CategoryName == "PhuKien" && a.UnitInStock > 0 && a.Homeflag == true)
+                .Where(a => a.IsActived && a.Cate.CategoryName == "Novel Hàn Quốc" && a.UnitInStock > 0 && a.Homeflag == true)
                 .Include(a => a.Brand)
                 .OrderByDescending(a => a.DateCreated);
             PagedList<Product> model = new PagedList<Product>(lstPhuKien, pageNo, pageSize);
@@ -82,15 +82,15 @@ namespace EShop.Controllers
             return View(model);
         }
 
-        [Route("LaptopColection.html", Name = "LaptopColection")]
-        public IActionResult LaptopColection(int? page)
+        [Route("JPNovelColection", Name = "JPNovelColection")]
+        public IActionResult JPNovelColection(int? page)
         {
             var pageNo = page == null || page <= 0 ? 1 : page.Value;
             var pageSize = 6;
             var lstLaptop = _context.Products
                 .AsNoTracking()
                 .Include(a => a.Cate)
-                .Where(a => a.IsActived && a.UnitInStock > 0 && a.Cate.CategoryName == "Laptop" && a.Homeflag == true)
+                .Where(a => a.IsActived && a.UnitInStock > 0 && a.Cate.CategoryName == "Novel Nhật Bản" && a.Homeflag == true)
                 .Include(a => a.Brand)
                 .OrderByDescending(a => a.DateCreated);
             PagedList<Product> model = new PagedList<Product>(lstLaptop, pageNo, pageSize);

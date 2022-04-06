@@ -26,7 +26,7 @@ namespace EShop.Controllers
         
         
         [HttpGet]
-        [Route("chi-tiet-don-hang-{id}.html", Name = "Chitietdonhang")]
+        [Route("chi-tiet-don-hang-{id}", Name = "Chitietdonhang")]
         public IActionResult Details(int? id)
         {
             if (id == null)

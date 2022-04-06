@@ -18,9 +18,9 @@ namespace EShop.Controllers
         {
             _context = context;
         }
-
-        [Route("Laptop.html", Name = "Laptop")]
-        public IActionResult Index(int? page)
+        //Novel Nhật
+        [Route("JPNovel", Name = "Novel Nhật Bản")]
+        public IActionResult JPNovel(int? page)
         {
             var pageNo = page == null || page <= 0 ? 1 : page.Value;
             var pageSize = 6;
@@ -34,16 +34,16 @@ namespace EShop.Controllers
             ViewBag.CurrentPage = pageNo;
             return View(model);
         }
-        
-        [Route("SmartPhone.html", Name = "SmartPhone")]
-        public IActionResult SmartPhone(int? page)
+        //Novel Trung
+        [Route("CNNovel", Name = "Novel Trung Quốc")]
+        public IActionResult CNNovel(int? page)
         {
             var pageNo = page == null || page <= 0 ? 1 : page.Value;
             var pageSize = 6;
             var lstSmartPhone = _context.Products
                 .AsNoTracking()
                 .Include(a => a.Cate)
-                .Where(a => a.IsActived && a.UnitInStock > 0 && a.Cate.CategoryName == "SmartPhone")
+                .Where(a => a.IsActived && a.UnitInStock > 0 && a.Cate.CategoryName == "Novel Trung Quốc")
                 .Include(a => a.Brand)
                 .OrderByDescending(a => a.DateCreated);
             PagedList<Product> model = new PagedList<Product>(lstSmartPhone, pageNo, pageSize);
@@ -51,7 +51,7 @@ namespace EShop.Controllers
             return View(model);
         }
 
-        [Route("Sales.html", Name = "Sales")]
+        [Route("Sales", Name = "Sales")]
         public IActionResult Sales(int? page)
         {
             var pageNo = page == null || page <= 0 ? 1 : page.Value;
@@ -66,16 +66,16 @@ namespace EShop.Controllers
             ViewBag.CurrentPage = pageNo;
             return View(model);
         }
-
-        [Route("PhuKien.html", Name = "PhuKien")]
-        public IActionResult PhuKien(int? page)
+        //Novel Hàn
+        [Route("KRNovel", Name = "Novel Hàn Quốc")]
+        public IActionResult KRNovel(int? page)
         {
             var pageNo = page == null || page <= 0 ? 1 : page.Value;
             var pageSize = 6;
             var lstPhuKien = _context.Products
                 .AsNoTracking()
                 .Include(a => a.Cate)
-                .Where(a => a.IsActived && a.Cate.CategoryName == "PhuKien" && a.UnitInStock > 0)
+                .Where(a => a.IsActived && a.Cate.CategoryName == "Novel Hàn Quốc" && a.UnitInStock > 0)
                 .Include(a => a.Brand)
                 .OrderByDescending(a => a.DateCreated);
             PagedList<Product> model = new PagedList<Product>(lstPhuKien, pageNo, pageSize);
@@ -85,7 +85,7 @@ namespace EShop.Controllers
 
 
 
-        [Route("/{Alias}-{id}.html", Name = "Details")]
+        [Route("/{Alias}-{id}", Name = "Details")]
         public IActionResult Details(int id)
         {
             var product = _context.Products.Include(a => a.Cate).Include(a => a.Brand).FirstOrDefault(x => x.ProductId == id);

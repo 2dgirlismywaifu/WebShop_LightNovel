@@ -1,4 +1,5 @@
 ﻿@model List<EShop.ViewModel.CartItem>
+@*Đây là nơi thanh toán ở nút giở hàng*@
 @if (Model != null && Model.Count() > 0)
 {
     <div class="cart-dropdown">
@@ -23,14 +24,14 @@
             <h5>Tổng tiền: @Model.Sum(x => x.TotalMoney).Value.ToString("#,##0") VNĐ</h5>
         </div>
         <div class="cart-btns">
-            <a href="CartItem.html">Xem giỏ hàng</a>
+            <a href="CartItem">Xem giỏ hàng</a>
             @if (User.Identity.IsAuthenticated)
             {
-                <a href="/checkout.html">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="/checkout">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
             }
             else
             {
-                <a href="/login.html?returnUrl=/checkout.html">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="/login?returnUrl=/checkout">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
             }
         </div>
     </div>
@@ -42,14 +43,14 @@ else
     <div class="cart-dropdown">
         <p style="text-align:center;">Rỗng</p>
         <div class="cart-btns">
-            <a href="CartItem.html">Xem giỏ hàng</a>
+            <a href="CartItem">Xem giỏ hàng</a>
             @if (User.Identity.IsAuthenticated)
             {
-                <a href="/checkout.html">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="/checkout">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
             }
             else
             {
-                <a href="/login.html?returnUrl=/checkout.html">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="/login?returnUrl=/checkout">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
             }
         </div>
     </div>

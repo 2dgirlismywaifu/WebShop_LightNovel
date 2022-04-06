@@ -63,7 +63,7 @@ namespace EShop.Controllers
         }
 
         #region //ThanhToanThuong
-        [Route("Checkout.html", Name = "Checkout")]
+        [Route("Checkout", Name = "Checkout")]
         public IActionResult Index(string url = null)
         {
             List<CartItem> carts = GioHang;
@@ -86,7 +86,7 @@ namespace EShop.Controllers
         }
 
         [HttpPost]
-        [Route("Checkout.html", Name = "Checkout")]
+        [Route("Checkout", Name = "Checkout")]
         public IActionResult Index(OrderViewModel model)
         {
             //lấy ra để xử lý
@@ -158,6 +158,7 @@ namespace EShop.Controllers
         }
         #endregion
 
+        //Chúng ta sẽ bỏ thanh toán paypal
         #region //Thanh toán Paypal
         public async Task<IActionResult> PaypalCheckoutAsync()
         {
