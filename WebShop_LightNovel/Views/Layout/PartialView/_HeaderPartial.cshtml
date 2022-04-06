@@ -5,13 +5,13 @@
             <ul class="header-links pull-right">
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <li><a href="MyAccount.html"><i class="fa fa-user-o"></i>Xin chào @User.Identity.Name</a></li>
+                    <li><a href="MyAccount"><i class="fa fa-user-o"></i>Xin chào @User.Identity.Name</a></li>
                     <li><a href="logout"><i class="fas fa-power-off"></i>Đăng xuất</a></li>
                 }
                 else
                 {
-                    <li><a href="register.html"><i class="far fa-registered"></i>Đăng ký</a></li>
-                    <li><a href="login.html"><i class="fas fa-power-off"></i>Đăng nhập</a></li>
+                    <li><a href="register"><i class="far fa-registered"></i>Đăng ký</a></li>
+                    <li><a href="login"><i class="fas fa-power-off"></i>Đăng nhập</a></li>
                 }
             </ul>
         </div>

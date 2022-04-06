@@ -38,7 +38,7 @@ namespace EShop.Controllers
         }
 
         //MyAccount
-        [Route("MyAccount.html", Name = "TaiKhoanCuaToi")]
+        [Route("MyAccount", Name = "TaiKhoanCuaToi")]
         public IActionResult MyAccount()
         {
             var AccID = HttpContext.Session.GetString("CustommerId");
@@ -60,7 +60,7 @@ namespace EShop.Controllers
             return RedirectToAction("Login", "Accounts");
         }
 
-        //SignOut
+        //Đăng xuất
         [HttpGet]
         [Route("logout", Name = "DangXuat")]
         public IActionResult Logout()
@@ -73,14 +73,14 @@ namespace EShop.Controllers
         #region //Change Pass
 
         [HttpGet]
-        [Route("ChangePassword.html", Name = "DoiMatKhau")]
+        [Route("ChangePassword", Name = "DoiMatKhau")]
         public IActionResult ChangePassword()
         {
             return View();
         }
 
         [HttpPost]
-        [Route("ChangePassword.html", Name = "DoiMatKhau")]
+        [Route("ChangePassword", Name = "DoiMatKhau")]
         public IActionResult ChangePassword(ChangePasswordViewModel changePassword)
         {
             try
@@ -256,7 +256,7 @@ namespace EShop.Controllers
         #region //Đăng ký
         [HttpGet]
         [AllowAnonymous]
-        [Route("Register.html", Name = "DangKy")]
+        [Route("Register", Name = "DangKy")]
         public IActionResult Register()
         {
             return View();
@@ -264,7 +264,7 @@ namespace EShop.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [Route("Register.html", Name = "DangKy")]
+        [Route("Register", Name = "DangKy")]
         public async Task<IActionResult> Register(RegisterViewModel Taikhoan, Microsoft.AspNetCore.Http.IFormFile fAvatar)
         {
             try
@@ -338,7 +338,7 @@ namespace EShop.Controllers
 
         #region //Đăng nhập
         [AllowAnonymous]
-        [Route("Login.html", Name = "DangNhap")]
+        [Route("Login", Name = "DangNhap")]
         public IActionResult Login(string returnUrl = null)
         {
             var AccID = HttpContext.Session.GetString("CustommerId");
@@ -352,7 +352,7 @@ namespace EShop.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [Route("Login.html", Name = "DangNhap")]
+        [Route("Login", Name = "DangNhap")]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
             try
