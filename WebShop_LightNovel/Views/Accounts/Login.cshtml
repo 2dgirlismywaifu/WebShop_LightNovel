@@ -15,7 +15,7 @@
                     <div class="card disable-rounded-right mb-0 p-2 h-100 d-flex justify-content-center">
                         <div class="card-header pb-1">
                             <div class="card-title">
-                                <h4 class="text-center mb-2">Welcome Back</h4>
+                                <h4 class="text-center mb-2">Xin chào trở lại</h4>
                             </div>
                         </div>
                         <div class="card-content">
@@ -24,12 +24,12 @@
                                 </div>
                                 <form asp-controller="Accounts" asp-action="Login">
                                     <div class="form-group mb-50">
-                                        <label asp-for="UserName" class="control-label"></label>
+                                        <label asp-for="UserName" class="control-label">Tài khoản</label>
                                         <input asp-for="UserName" class="form-control" placeholder="Tên tài khoản" />
                                         <span asp-validation-for="UserName" class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label asp-for="Password" class="control-label"></label>
+                                        <label asp-for="Password" class="control-label">Mật khẩu</label>
                                         <input asp-for="Password" class="form-control" placeholder="Mật khẩu" />
                                         <span asp-validation-for="Password" class="text-danger"></span>
                                     </div>
@@ -41,7 +41,7 @@
                                     <button type="submit" class="btn btn-primary glow w-100 position-relative">Đăng nhập<i id="icon-arrow" class="bx bx-right-arrow-alt"></i></button>
                                 </form>
                                 <hr>
-                                <div class="text-center"><small class="mr-25">Don't have an account?</small><a href="Register.html"><small>Đăng ký</small></a></div>
+                                <div class="text-center"><small class="mr-25">Không có tài khoản?</small><a href="Register"><small>Đăng ký</small></a></div>
                             </div>
                         </div>
                     </div>
@@ -69,27 +69,19 @@
             </div>
             <div class="modal-body">
                 <p class="justify-content-center align-content-center text-center">
-                    <h6 class="justify-content-center align-content-center text-center">Email : <a href="#">Laihuyha@gmail.com</a></h6>
+                    <h6 class="justify-content-center align-content-center text-center">Email : <a href="#">ngothanhlong19943@gmail.com</a></h6>
                     <br />
-                    <h6 class="justify-content-center align-content-center text-center">
-                        <div class="fonticon-wrap">
-                            <i class="bx bx-phone-call" style="font-size:18px;"></i>
-                            :<a href="#"> 0968454617</a>
-                        </div>
-                    </h6>
+                    <h6 class="justify-content-center align-content-center text-center">Zalo : <a href="#">0355767198</a></h6>            
                     <hr />
                     <h5 class="justify-content-center align-content-center text-center">Hoặc</h5>
                     <br />
                     <div style="text-align:center">
-                        <a href="https://fb.com/huyha111200"><i class="bx bxl-facebook-square"></i></a>
+                        <a href="#"><i class="bx bxl-facebook-square"></i></a>
                     </div>
                 </p>
             </div>
             <div class="modal-footer">
-                @*<button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                        <i class="bx bx-x d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Close</span>
-                    </button>*@
+                
                 <button type="button" class="btn btn-primary ml-1" data-dismiss="modal">
                     <i class="bx bx-check d-block d-sm-none"></i>
                     <span class="d-none d-sm-block">OK</span>
