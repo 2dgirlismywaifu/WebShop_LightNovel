@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Globalization;
 
 namespace WebShopNovel.Helpper
 {
@@ -76,7 +74,7 @@ namespace WebShopNovel.Helpper
                 }
                 var supportedTypes = new[] { "jpg", "jpeg", "png", "gif" };
                 var fileExt = System.IO.Path.GetExtension(file.FileName).Substring(1);
-                if (!supportedTypes.Contains(fileExt.ToLower())) // Khác các file định nghĩa
+                if (!supportedTypes.Contains(fileExt.ToLower()))
                 {
                     return null;
                 }
