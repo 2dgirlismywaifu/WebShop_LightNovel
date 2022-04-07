@@ -6,9 +6,9 @@
 }
 
 <div style="margin-top:3%; margin-left:10%;">
-    <h1>Edit</h1>
+    <h1>Sửa thông tin</h1>
 
-    <h4>Customer</h4>
+    <h4>Thông tin khách hàng</h4>
     <hr />
     <div class="row">
         <div class="col-md-9" style="background: #cce6e7">
@@ -20,11 +20,10 @@
                 <input type="hidden" asp-for="Password" />
                 <input type="hidden" asp-for="CreateDate" />
                 <input type="hidden" asp-for="IsActived" />
-                @*<input type="hidden" asp-for="Province" />*@
-                @*<input type="hidden" asp-for="District" />*@
-                @*<input type="hidden" asp-for="Ward" />*@
+               
                 <div class="row">
                     <div class="form-group col-md-6">
+                        <br />
                         <label asp-for="FullName" class="control-label"></label>
                         <input asp-for="FullName" class="form-control" />
                         <span asp-validation-for="FullName" class="text-danger"></span>
@@ -68,7 +67,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-7">
-                    <label asp-for="District" class="control-label"></label>
+                    <label asp-for="District" class="control-label">Quận Huyện</label>
                     <div class="col-md-10">
                         <select class="form-control" id="District" name="District" onchange="districtChangeFunction();">
                             <option value="" selected>Quận Huyện</option>
@@ -78,7 +77,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-7">
-                    <label asp-for="Ward" class="control-label"></label>
+                    <label asp-for="Ward" class="control-label">Phường Xã</label>
                     <div class="col-md-10">
                         <select class="form-control" id="Ward" name="Ward" aria-placeholder="Quận Huyện">
                             <option value="" selected>Phường xã</option>
@@ -182,13 +181,12 @@
 }
 @section Styles {
     <style>
+
         .profile-img {
             text-align: center;
         }
 
-            .profile-img img {
-                /*width: 100%;
-            height: 100%;*/
+            .profile-img img {               
                 max-height: 188px;
                 max-width: 125px;
                 border-radius: 10px;
