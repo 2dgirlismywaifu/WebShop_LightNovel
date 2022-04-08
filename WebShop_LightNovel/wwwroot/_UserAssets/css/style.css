@@ -2004,12 +2004,17 @@ textarea.input {
 ===========================================================*/
 
 #footer {
-  background: #15161D;
+  background: #0a0a0a;
   color: #B9BABC;
+  position: relative;
+}
+#footer .img img {
+  position: absolute;
+  right: 20px; 
 }
 
 #bottom-footer {
-  background: #1E1F29;
+  background: #1c1c1f;
 }
 
 .footer {

@@ -49,7 +49,7 @@
                                 Tên sản phẩm
                             </th>
                             <th class="text-center align-items-center">Danh mục</th>
-                            <th class="text-center align-items-center">Thương hiệu</th>
+                            <th class="text-center align-items-center">Nhà xuất bản</th>
                             <th>Giá</th>
                             <th class="text-center align-items-center">
                                 <a @*asp-action="Index"*@ asp-route-sortOrder="@ViewData["UnitSortParm"]">
@@ -57,7 +57,7 @@
                                 </a>
                             </th>
                             <th>Trạng thái</th>
-                            <th class="text-center align-items-center">Is BestSeller?</th>
+                            <th class="text-center align-items-center">Bán chạy</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -117,10 +117,7 @@
                                         </a>
                                         <a asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-icon btn-hover btn-sm btn-rounded">
                                             <i class="anticon anticon-edit"></i>
-                                        </a>
-                                        @*<button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#exampleModalCenter">
-                                                <i class="anticon anticon-delete"></i>
-                                            </button>*@
+                                        </a>                                   
                                         <a asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-icon btn-hover btn-sm btn-rounded">
                                             <i class="anticon anticon-delete"></i>
                                         </a>
