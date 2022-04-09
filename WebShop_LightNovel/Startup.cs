@@ -1,5 +1,4 @@
 ﻿using AspNetCoreHero.ToastNotification;
-using EmailServices;
 using WebShopNovel.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -55,12 +54,6 @@ namespace WebShopNovel
             services.AddControllersWithViews().AddRazorRuntimeCompilation().AddSessionStateTempDataProvider();
             services.AddNotyf(config => { config.DurationInSeconds = 5; config.IsDismissable = false; config.Position = NotyfPosition.TopRight; });
 
-            // MailServer
-            var emailconfig = Configuration
-                .GetSection("EmailConfiguration")
-                .Get<EmailConfiguration>();
-            services.AddSingleton(emailconfig);
-            services.AddScoped<IEmailSender, EmailSender>();
             services.AddControllers();
         }
 

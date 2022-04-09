@@ -1,5 +1,4 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
-using BraintreeHttp;
 using WebShopNovel.Extension;
 using WebShopNovel.Helpper;
 using WebShopNovel.Models;
@@ -8,8 +7,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using PayPal.Core;
-using PayPal.v1.Payments;
 using System;
 using System.Collections.Generic;
 using System.Linq;

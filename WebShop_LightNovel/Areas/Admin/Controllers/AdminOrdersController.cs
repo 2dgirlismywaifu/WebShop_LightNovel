@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebShopNovel.Models;
 using PagedList.Core;
-using EmailServices;
 using Microsoft.AspNetCore.Authorization;
 
 namespace WebShopNovel.Areas.Admin.Controllers
@@ -16,11 +15,10 @@ namespace WebShopNovel.Areas.Admin.Controllers
     public class AdminOrdersController : Controller
     {
         private readonly WebNovel _context;
-        private readonly IEmailSender _emailSender;
 
-        public AdminOrdersController(WebNovel context, IEmailSender emailSender)
+        public AdminOrdersController(WebNovel context)
         {
-            _emailSender = emailSender;
+         
             _context = context;
         }
 
@@ -29,6 +27,26 @@ namespace WebShopNovel.Areas.Admin.Controllers
         {
             //chưa duyệt
             var ecommerceVer2Context = from m in _context.Orders.Include(o => o.Customer).Include(o => o.TransactionStatus).Where(o => o.TransactionStatusId == 1).OrderByDescending(x => x.OrderDate) select m;
+            //Search
+            ViewData["CurrentFilter"] = searchStr;
+            if (!String.IsNullOrEmpty(searchStr))
+            {
+                ecommerceVer2Context = ecommerceVer2Context.Where(p => p.OrderId.ToString().Contains(searchStr) || p.CustomerId.ToString().Contains(searchStr));
+            }
+
+            //Paginate
+            var pageNo = page == null || page <= 0 ? 1 : page.Value;
+            var pageSize = 15;
+            ViewBag.CurrentPage = pageNo;
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustommerId", "FullName");
+            PagedList<Order> models = new PagedList<Order>(ecommerceVer2Context, pageNo, pageSize);
+            return View(models);
+        }
+
+        public IActionResult Index4(string searchStr, int? page)
+        {
+            //đã duyệt
+            var ecommerceVer2Context = from m in _context.Orders.Include(o => o.Customer).Include(o => o.TransactionStatus).Where(o => o.TransactionStatusId == 2).OrderByDescending(x => x.OrderDate) select m;
             //Search
             ViewData["CurrentFilter"] = searchStr;
             if (!String.IsNullOrEmpty(searchStr))
@@ -245,10 +263,7 @@ namespace WebShopNovel.Areas.Admin.Controllers
                                 chitiet += "<br />";
                                 chitiet += "Tổng thanh toán: " + donhang.TotalMoney.Value.ToString("#,##0") + " VNĐ";
                                 _context.Update(product);
-                            }
-
-                            var message = new Message(new string[] { donhang.Customer.Mail }, "Xác nhận đơn hàng", chitiet);
-                            _emailSender.SendEmail(message);
+                            }                          
                         }
                         // Nếu đơn hàng đã giao thì chuyển trạng thái Delete = true;
                         if (donhang.TransactionStatusId == 5)
