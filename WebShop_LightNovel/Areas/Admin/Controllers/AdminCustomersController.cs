@@ -87,41 +87,7 @@ namespace WebShopNovel.Areas.Admin.Controllers
             return View(customer);
         }
 
-        // GET: Admin/AdminCustomers/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Admin/AdminCustomers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustommerId,Username,Password,FullName,BirthDay,Avatar,Address,Mail,Phone,Province,District,Ward,CreateDate,LastLogin,IsActived,Randomkey,CartId")] Customer customer, Microsoft.AspNetCore.Http.IFormFile fAvatar)
-        {
-            if (ModelState.IsValid)
-            {
-                customer.FullName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(customer.FullName);
-                string RandomKey = Utilities.GetRandomKey();
-                if (fAvatar != null)
-                {
-                    string extennsion = Path.GetExtension(fAvatar.FileName);
-                    image = Utilities.ToUrlFriendly(customer.FullName) + extennsion;
-                    customer.Avatar = await Utilities.UploadFile(fAvatar, @"User", image.ToLower());
-                }
-                if (string.IsNullOrEmpty(customer.Avatar)) customer.Avatar = "avatar.png";
-                customer.CreateDate = DateTime.Now;
-                customer.LastLogin = DateTime.Now;
-                customer.Password = (customer.Password + RandomKey.Trim()).PassToMD5();
-                customer.Randomkey = RandomKey;
-                _context.Add(customer);
-                _notyfService.Success("Thêm thành công!");
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(customer);
-        }
+        
 
         // GET: Admin/AdminCustomers/Edit/5
         public async Task<IActionResult> Edit(int? id)

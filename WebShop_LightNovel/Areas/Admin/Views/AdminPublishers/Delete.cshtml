@@ -1,7 +1,7 @@
-﻿@model WebShopNovel.Models.Brand
+﻿@model WebShopNovel.Models.Publisher
 
 @{
-    ViewData["Title"] = "Xóa nhãn hàng Id #" + Model.BrandId;
+    ViewData["Title"] = "Xóa nhãn hàng Id #" + Model.PublisherId;
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <div style="margin-top:10%; margin-left:10%;">
@@ -14,7 +14,7 @@
                 Tên nhãn hàng
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.BrandName)
+                @Html.DisplayFor(model => model.PublisherName)
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Logo)
@@ -24,7 +24,7 @@
             </dd>
         </dl>
         <div class="profile-img">
-            <img src="~/images/User/@Model.Logo" alt="@Model.BrandName" />
+            <img src="~/images/User/@Model.Logo" alt="@Model.PublisherName" />
             @*<div class="file btn btn-lg btn-primary">
                 Change Photo
                 <input type="file" name="file" />
@@ -35,7 +35,7 @@
         </div>
 
         <form asp-action="Delete" style="margin-top: 30px;">
-            <input type="hidden" asp-for="BrandId" />
+            <input type="hidden" asp-for="PublisherId" />
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
                 Xóa
             </button>  |

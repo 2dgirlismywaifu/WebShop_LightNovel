@@ -1,5 +1,5 @@
 ﻿@using PagedList.Core.Mvc
-@model PagedList.Core.IPagedList<WebShopNovel.Models.Brand>
+@model PagedList.Core.IPagedList<WebShopNovel.Models.Publisher>
 
 @{
     int _current = ViewBag.CurrentPage;
@@ -19,7 +19,7 @@
         <div class="card-body">
             <div class="row m-b-30">
                 <div class="col-lg-8">
-                    <form asp-controller="AdminBrands" asp-action="Index">
+                    <form asp-controller="AdminPublishers" asp-action="Index">
                         <p>
                             <input type="search" name="searchStr" value="@ViewData["CurrentFilter"]" required />
                             <button type="submit"><i class="fa fa-search"></i></button>
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="col-lg-4 text-right">
-                    <a asp-controller="AdminBrands" asp-action="Create" class="btn btn-primary">
+                    <a asp-controller="AdminPublishers" asp-action="Create" class="btn btn-primary">
                         <i class="anticon anticon-plus-circle m-r-5"></i>
                         <span>Thêm nhà xuất bản</span>
                     </a>
@@ -59,13 +59,13 @@
                             {
                                 <tr>
                                     <td>
-                                        @item.BrandId
+                                        @item.PublisherId
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center text-center">
                                             @*<img class="img-fluid rounded" src="~/images/categories/@item.ThumbImg"
                                                 style="max-width: 60px" alt="">*@
-                                            <h6 class="m-b-0 m-l-10">@item.BrandName</h6>
+                                            <h6 class="m-b-0 m-l-10">@item.PublisherName</h6>
                                         </div>
                                     </td>
                                     <td>
@@ -75,13 +75,13 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <a asp-controller="AdminBrands" asp-action="Details" asp-route-id="@item.BrandId" class="btn btn-icon btn-hover btn-sm btn-rounded">
+                                        <a asp-controller="AdminPublishers" asp-action="Details" asp-route-id="@item.PublisherId" class="btn btn-icon btn-hover btn-sm btn-rounded">
                                             <i class="anticon anticon-eye"></i>
                                         </a>
-                                        <a asp-controller="AdminBrands" asp-action="Edit" asp-route-id="@item.BrandId" class="btn btn-icon btn-hover btn-sm btn-rounded">
+                                        <a asp-controller="AdminPublishers" asp-action="Edit" asp-route-id="@item.PublisherId" class="btn btn-icon btn-hover btn-sm btn-rounded">
                                             <i class="anticon anticon-edit"></i>
                                         </a>
-                                        <a asp-controller="AdminBrands" asp-action="Delete" asp-route-id="@item.BrandId" class="btn btn-icon btn-hover btn-sm btn-rounded">
+                                        <a asp-controller="AdminPublishers" asp-action="Delete" asp-route-id="@item.PublisherId" class="btn btn-icon btn-hover btn-sm btn-rounded">
                                             <i class="anticon anticon-delete"></i>
                                         </a>
                                     </td>
@@ -90,7 +90,7 @@
                         }
                     </tbody>
                 </table>
-                <pager class="paper-container" list="@Model" asp-area="Admin" asp-controller="AdminBrands" asp-action="Index"></pager>
+                <pager class="paper-container" list="@Model" asp-area="Admin" asp-controller="AdminPublishers" asp-action="Index"></pager>
             </div>
         </div>
     </div>

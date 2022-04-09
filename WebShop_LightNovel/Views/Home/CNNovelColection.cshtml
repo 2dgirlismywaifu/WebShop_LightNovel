@@ -37,13 +37,7 @@
                                         <p class="product-category">@item.Cate.CategoryName</p>
                                         <h3 class="product-name"><a href="@url">@item.ProductName</a></h3>
                                         <h4 class="product-price">@item.SalesPrice.Value.ToString("#,##0") VNĐ<del class="product-old-price" style="margin-left:5px;">@item.Price.Value.ToString("#,##0") VNĐ</del></h4>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
+                                        <br />
                                         <div class="product-btns">
                                             <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
                                             <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
@@ -68,7 +62,7 @@
                         </ul>
                     </div>*@
                 <hr />
-                <pager class="paper-container" list="@Model" asp-area="" asp-controller="Home" asp-action="SmartPhoneColection"></pager>
+                <pager class="paper-container" list="@Model" asp-area="" asp-controller="Home" asp-action="CNNovelColection"></pager>
                 <!-- /store bottom filter -->
             </div>
             <!-- /STORE -->

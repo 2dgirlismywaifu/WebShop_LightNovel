@@ -5,15 +5,15 @@ using System.Collections.Generic;
 
 namespace WebShopNovel.Models
 {
-    public partial class Brand
+    public partial class Publisher
     {
-        public Brand()
+        public Publisher()
         {
             Products = new HashSet<Product>();
         }
 
-        public int BrandId { get; set; }
-        public string BrandName { get; set; }
+        public int PublisherId { get; set; }
+        public string PublisherName { get; set; }
         public string Logo { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }

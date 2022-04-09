@@ -2,7 +2,7 @@
 
 namespace WebShopNovel.Migrations
 {
-    public partial class BrandModel : Migration
+    public partial class PublisherModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,54 +31,54 @@ namespace WebShopNovel.Migrations
                 table: "Account");
 
             migrationBuilder.AddColumn<int>(
-                name: "BrandID",
+                name: "PublisherId",
                 table: "Product",
                 type: "int",
                 nullable: true);
 
             migrationBuilder.CreateTable(
-                name: "Brand",
+                name: "Publisher",
                 columns: table => new
                 {
-                    BrandID = table.Column<int>(type: "int", nullable: false)
+                    PublisherId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BrandName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    PublisherName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Logo = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Brand", x => x.BrandID);
+                    table.PrimaryKey("PK_Publisher", x => x.PublisherId);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Product_BrandID",
+                name: "IX_Product_PublisherId",
                 table: "Product",
-                column: "BrandID");
+                column: "PublisherId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Product_Brand",
+                name: "FK_Product_Publisher",
                 table: "Product",
-                column: "BrandID",
-                principalTable: "Brand",
-                principalColumn: "BrandID",
+                column: "PublisherId",
+                principalTable: "Publisher",
+                principalColumn: "PublisherId",
                 onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Product_Brand",
+                name: "FK_Product_Publisher",
                 table: "Product");
 
             migrationBuilder.DropTable(
-                name: "Brand");
+                name: "Publisher");
 
             migrationBuilder.DropIndex(
-                name: "IX_Product_BrandID",
+                name: "IX_Product_PublisherId",
                 table: "Product");
 
             migrationBuilder.DropColumn(
-                name: "BrandID",
+                name: "PublisherId",
                 table: "Product");
 
             migrationBuilder.AddColumn<int>(

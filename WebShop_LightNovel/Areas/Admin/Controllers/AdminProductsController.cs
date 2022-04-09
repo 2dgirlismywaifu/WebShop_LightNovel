@@ -33,8 +33,8 @@ namespace WebShopNovel.Areas.Admin.Controllers
         public IActionResult Index(string sortOrder, string currentFilter, string searchStr, int? page)
         {
             ViewData["CateId"] = new SelectList(_context.Categories, "CateId", "CategoryName");
-            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandName");
-            var _product = from m in _context.Products.Include(p => p.Brand).Include(p => p.Cate) select m;
+            ViewData["PublisherId"] = new SelectList(_context.Publishers, "PublisherId", "PublisherName");
+            var _product = from m in _context.Products.Include(p => p.Publisher).Include(p => p.Cate) select m;
             //Sort
             ViewData["IdSortParm"] = String.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
@@ -85,7 +85,7 @@ namespace WebShopNovel.Areas.Admin.Controllers
             }
 
             var product = await _context.Products
-                .Include(p => p.Brand)
+                .Include(p => p.Publisher)
                 .Include(p => p.Cate)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
@@ -99,7 +99,7 @@ namespace WebShopNovel.Areas.Admin.Controllers
         // GET: Admin/AdminProducts/Create
         public IActionResult Create()
         {
-            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandName");
+            ViewData["PublisherId"] = new SelectList(_context.Publishers, "PublisherId", "PublisherName");
             ViewData["CateId"] = new SelectList(_context.Categories, "CateId", "CategoryName");
             return View();
         }
@@ -109,7 +109,7 @@ namespace WebShopNovel.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ShortDesc,Descriptions,CateId,Price,Discount,ThumbImg,Video,DateCreated,DateModified,IsBestsellers,Homeflag,IsActived,Tag,Title,Alias,UnitInStock,BrandId,SalesPrice")] Product product, Microsoft.AspNetCore.Http.IFormFile fThumbImg)
+        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ShortDesc,Descriptions,CateId,Price,Discount,ThumbImg,Video,DateCreated,DateModified,IsBestsellers,Homeflag,IsActived,Tag,Title,Alias,UnitInStock,PublisherId,SalesPrice")] Product product, Microsoft.AspNetCore.Http.IFormFile fThumbImg)
         {
             if (ModelState.IsValid)
             {
@@ -134,7 +134,7 @@ namespace WebShopNovel.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandName", product.BrandId);
+            ViewData["PublisherId"] = new SelectList(_context.Publishers, "PublisherId", "PublisherName", product.PublisherId);
             ViewData["CateId"] = new SelectList(_context.Categories, "CateId", "CategoryName", product.CateId);
             return View(product);
         }
@@ -152,7 +152,7 @@ namespace WebShopNovel.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandName", product.BrandId);
+            ViewData["PublisherId"] = new SelectList(_context.Publishers, "PublisherId", "PublisherName", product.PublisherId);
             ViewData["CateId"] = new SelectList(_context.Categories, "CateId", "CategoryName", product.CateId);
             return View(product);
         }
@@ -162,7 +162,7 @@ namespace WebShopNovel.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ShortDesc,Descriptions,CateId,Price,Discount,ThumbImg,Video,DateCreated,DateModified,IsBestsellers,Homeflag,IsActived,Tag,Title,Alias,UnitInStock,BrandId,SalesPrice")] Product product, Microsoft.AspNetCore.Http.IFormFile fThumbImg)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ShortDesc,Descriptions,CateId,Price,Discount,ThumbImg,Video,DateCreated,DateModified,IsBestsellers,Homeflag,IsActived,Tag,Title,Alias,UnitInStock,PublisherId,SalesPrice")] Product product, Microsoft.AspNetCore.Http.IFormFile fThumbImg)
         {
             if (id != product.ProductId)
             {
@@ -205,7 +205,7 @@ namespace WebShopNovel.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandName", product.BrandId);
+            ViewData["PublisherId"] = new SelectList(_context.Publishers, "PublisherId", "PublisherName", product.PublisherId);
             ViewData["CateId"] = new SelectList(_context.Categories, "CateId", "CategoryName", product.CateId);
             return View(product);
         }
@@ -220,7 +220,7 @@ namespace WebShopNovel.Areas.Admin.Controllers
             }
 
             var product = await _context.Products
-                .Include(p => p.Brand)
+                .Include(p => p.Publisher)
                 .Include(p => p.Cate)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
@@ -252,8 +252,8 @@ namespace WebShopNovel.Areas.Admin.Controllers
         public IActionResult SPGanHet(string sortOrder, string currentFilter, string searchStr, int? page)
         {
             ViewData["CateId"] = new SelectList(_context.Categories, "CateId", "CategoryName");
-            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandName");
-            var _product = from m in _context.Products.Include(p => p.Brand).Include(p => p.Cate).Where(p=>p.UnitInStock < 5) select m;
+            ViewData["PublisherId"] = new SelectList(_context.Publishers, "PublisherId", "PublisherName");
+            var _product = from m in _context.Products.Include(p => p.Publisher).Include(p => p.Cate).Where(p=>p.UnitInStock < 10) select m;
             //Sort
             ViewData["IdSortParm"] = String.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
@@ -299,8 +299,8 @@ namespace WebShopNovel.Areas.Admin.Controllers
         public IActionResult BestSeller(string sortOrder, string currentFilter, string searchStr, int? page)
         {
             ViewData["CateId"] = new SelectList(_context.Categories, "CateId", "CategoryName");
-            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandName");
-            var _product = from m in _context.Products.Include(p => p.Brand).Include(p => p.Cate).Where(x=>x.IsBestsellers == true) select m;
+            ViewData["PublisherId"] = new SelectList(_context.Publishers, "PublisherId", "BrandName");
+            var _product = from m in _context.Products.Include(p => p.Publisher).Include(p => p.Cate).Where(x=>x.IsBestsellers == true) select m;
             //Sort
             ViewData["IdSortParm"] = String.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";

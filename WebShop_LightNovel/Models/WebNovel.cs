@@ -20,7 +20,7 @@ namespace WebShopNovel.Models
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Attribute> Attributes { get; set; }
         public virtual DbSet<AttributePrice> AttributePrices { get; set; }
-        public virtual DbSet<Brand> Brands { get; set; }
+        public virtual DbSet<Publisher> Publishers { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<ImportDetail> ImportDetails { get; set; }
@@ -120,13 +120,13 @@ namespace WebShopNovel.Models
                     .HasConstraintName("FK_AttributePrices_Product");
             });
 
-            modelBuilder.Entity<Brand>(entity =>
+            modelBuilder.Entity<Publisher>(entity =>
             {
-                entity.ToTable("Brand");
+                entity.ToTable("Publisher");
 
-                entity.Property(e => e.BrandId).HasColumnName("BrandID");
+                entity.Property(e => e.PublisherId).HasColumnName("PublisherId");
 
-                entity.Property(e => e.BrandName).HasMaxLength(100);
+                entity.Property(e => e.PublisherName).HasMaxLength(100);
             });
 
             modelBuilder.Entity<Category>(entity =>
@@ -286,13 +286,13 @@ namespace WebShopNovel.Models
             {
                 entity.ToTable("Product");
 
-                entity.HasIndex(e => e.BrandId, "IX_Product_BrandID");
+                entity.HasIndex(e => e.PublisherId, "IX_Product_PublisherId");
 
                 entity.HasIndex(e => e.CateId, "IX_Product_CateID");
 
                 entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
-                entity.Property(e => e.BrandId).HasColumnName("BrandID");
+                entity.Property(e => e.PublisherId).HasColumnName("PublisherId");
 
                 entity.Property(e => e.CateId).HasColumnName("CateID");
 
@@ -316,10 +316,10 @@ namespace WebShopNovel.Models
 
                 entity.Property(e => e.ShortDesc).HasMaxLength(255);
 
-                entity.HasOne(d => d.Brand)
+                entity.HasOne(d => d.Publisher)
                     .WithMany(p => p.Products)
-                    .HasForeignKey(d => d.BrandId)
-                    .HasConstraintName("FK_Product_Brand");
+                    .HasForeignKey(d => d.PublisherId)
+                    .HasConstraintName("FK_Product_Publisher");
 
                 entity.HasOne(d => d.Cate)
                     .WithMany(p => p.Products)

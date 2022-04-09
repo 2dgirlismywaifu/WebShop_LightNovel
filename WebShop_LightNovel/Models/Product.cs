@@ -44,9 +44,9 @@ namespace WebShopNovel.Models
         public string Title { get; set; }
         public string Alias { get; set; }
         public int? UnitInStock { get; set; }
-        public int? BrandId { get; set; }
+        public int? PublisherId { get; set; }
 
-        public virtual Brand Brand { get; set; }
+        public virtual Publisher Publisher { get; set; }
         public virtual Category Cate { get; set; }
         public virtual ICollection<AttributePrice> AttributePrices { get; set; }
         public virtual ICollection<ImportDetail> ImportDetails { get; set; }

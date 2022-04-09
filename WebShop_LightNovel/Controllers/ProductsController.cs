@@ -28,7 +28,7 @@ namespace WebShopNovel.Controllers
                 .AsNoTracking()
                 .Include(a => a.Cate)
                 .Where(a=>a.IsActived && a.UnitInStock >0 && a.CateId == 1)
-                .Include(a => a.Brand)
+                .Include(a => a.Publisher)
                 .OrderByDescending(a => a.DateCreated);
             PagedList<Product> model = new PagedList<Product>(lstLaptop, pageNo, pageSize);
             ViewBag.CurrentPage = pageNo;
@@ -44,7 +44,7 @@ namespace WebShopNovel.Controllers
                 .AsNoTracking()
                 .Include(a => a.Cate)
                 .Where(a => a.IsActived && a.UnitInStock > 0 && a.Cate.CategoryName == "Novel Trung Quốc")
-                .Include(a => a.Brand)
+                .Include(a => a.Publisher)
                 .OrderByDescending(a => a.DateCreated);
             PagedList<Product> model = new PagedList<Product>(lstSmartPhone, pageNo, pageSize);
             ViewBag.CurrentPage = pageNo;
@@ -60,7 +60,7 @@ namespace WebShopNovel.Controllers
                 .AsNoTracking()
                 .Include(a => a.Cate)
                 .Where(a => a.IsActived && a.Discount > 0 && a.UnitInStock > 0)
-                .Include(a => a.Brand)
+                .Include(a => a.Publisher)
                 .OrderByDescending(a => a.DateCreated);
             PagedList<Product> model = new PagedList<Product>(lstSale, pageNo, pageSize);
             ViewBag.CurrentPage = pageNo;
@@ -76,7 +76,7 @@ namespace WebShopNovel.Controllers
                 .AsNoTracking()
                 .Include(a => a.Cate)
                 .Where(a => a.IsActived && a.Cate.CategoryName == "Novel Hàn Quốc" && a.UnitInStock > 0)
-                .Include(a => a.Brand)
+                .Include(a => a.Publisher)
                 .OrderByDescending(a => a.DateCreated);
             PagedList<Product> model = new PagedList<Product>(lstPhuKien, pageNo, pageSize);
             ViewBag.CurrentPage = pageNo;
@@ -88,7 +88,7 @@ namespace WebShopNovel.Controllers
         [Route("/{Alias}-{id}", Name = "Details")]
         public IActionResult Details(int id)
         {
-            var product = _context.Products.Include(a => a.Cate).Include(a => a.Brand).FirstOrDefault(x => x.ProductId == id);
+            var product = _context.Products.Include(a => a.Cate).Include(a => a.Publisher).FirstOrDefault(x => x.ProductId == id);
             if(product == null)
             {
                 return RedirectToAction("Index");
@@ -101,7 +101,7 @@ namespace WebShopNovel.Controllers
 
         public IActionResult Search( string searchStr, int? page)
         {
-            var _product = from m in _context.Products.Include(p => p.Brand).Include(p => p.Cate) select m;
+            var _product = from m in _context.Products.Include(p => p.Publisher).Include(p => p.Cate) select m;
             
             //Search
             ViewData["CurrentFilter"] = searchStr;

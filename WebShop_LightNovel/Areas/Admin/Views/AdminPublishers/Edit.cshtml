@@ -1,14 +1,14 @@
-﻿@model WebShopNovel.Models.Brand
+﻿@model WebShopNovel.Models.Publisher
 
 @{
-    ViewData["Title"] = "Chỉnh sửa nhãn hàng #"+Model.BrandId;
+    ViewData["Title"] = "Chỉnh sửa nhãn hàng #"+Model.PublisherId;
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="main-content">
-    <form asp-controller="AdminBrands" asp-action="Edit" asp-route-id="@Model.BrandId" method="post" enctype="multipart/form-data">
+    <form asp-controller="AdminBrands" asp-action="Edit" asp-route-id="@Model.PublisherId" method="post" enctype="multipart/form-data">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="BrandId" />
+        <input type="hidden" asp-for="PublisherId" />
         <input type="hidden" asp-for="Logo" />
         <div class="page-header no-gutters has-tab">
             <div class="d-md-flex m-b-15 align-items-center justify-content-between">
@@ -17,8 +17,8 @@
                         <img src="~/images/brands/@Model.Logo"   id="output">
                     </div>
                     <div class="m-l-15">
-                        <h4 class="m-b-0">@Model.BrandName</h4>
-                        <p class="text-muted m-b-0">ID: #@Model.BrandId</p>
+                        <h4 class="m-b-0">@Model.PublisherName</h4>
+                        <p class="text-muted m-b-0">ID: #@Model.PublisherId</p>
                     </div>
                 </div>
                 <div class="m-b-15">
@@ -44,9 +44,9 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group">
-                            <label asp-for="BrandName" class="control-label">Tên nhãn hàng</label>
-                            <input asp-for="BrandName" class="form-control" />
-                            <span asp-validation-for="BrandName" class="text-danger"></span>
+                            <label asp-for="PublisherName" class="control-label">Tên nhãn hàng</label>
+                            <input asp-for="PublisherName" class="form-control" />
+                            <span asp-validation-for="PublisherName" class="text-danger"></span>
                         </div>
                         @*<div class="form-group">
                             <label asp-for="Logo" class="font-weight-semibold">Upload Ảnh</label>

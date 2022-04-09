@@ -78,7 +78,7 @@
                                         </div>
                                     </td>
                                     <td class="text-center align-items-center">@item.Cate.CategoryName</td>
-                                    <td class="text-center align-items-center">@item.Brand.BrandName</td>
+                                    <td class="text-center align-items-center">@item.Publisher.PublisherName</td>
                                     <td>@item.Price.Value.ToString("#,##0") VNĐ</td>
                                     <td class="text-center align-items-center">@item.UnitInStock</td>
                                     @if (item.IsActived && item.UnitInStock > 0)
@@ -117,7 +117,7 @@
                                         </a>
                                         <a asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-icon btn-hover btn-sm btn-rounded">
                                             <i class="anticon anticon-edit"></i>
-                                        </a>                                   
+                                        </a>
                                         <a asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-icon btn-hover btn-sm btn-rounded">
                                             <i class="anticon anticon-delete"></i>
                                         </a>

@@ -59,7 +59,7 @@ namespace WebShopNovel.Controllers
                 .AsNoTracking()
                 .Include(a => a.Cate)
                 .Where(a => a.IsActived && a.UnitInStock > 0 && a.Cate.CategoryName == "Novel Trung Quốc" && a.Homeflag == true)
-                .Include(a => a.Brand)
+                .Include(a => a.Publisher)
                 .OrderByDescending(a => a.DateCreated);
             PagedList<Product> model = new PagedList<Product>(lstSmartPhone, pageNo, pageSize);
             ViewBag.CurrentPage = pageNo;
@@ -75,7 +75,7 @@ namespace WebShopNovel.Controllers
                 .AsNoTracking()
                 .Include(a => a.Cate)
                 .Where(a => a.IsActived && a.Cate.CategoryName == "Novel Hàn Quốc" && a.UnitInStock > 0 && a.Homeflag == true)
-                .Include(a => a.Brand)
+                .Include(a => a.Publisher)
                 .OrderByDescending(a => a.DateCreated);
             PagedList<Product> model = new PagedList<Product>(lstPhuKien, pageNo, pageSize);
             ViewBag.CurrentPage = pageNo;
@@ -91,7 +91,7 @@ namespace WebShopNovel.Controllers
                 .AsNoTracking()
                 .Include(a => a.Cate)
                 .Where(a => a.IsActived && a.UnitInStock > 0 && a.Cate.CategoryName == "Novel Nhật Bản" && a.Homeflag == true)
-                .Include(a => a.Brand)
+                .Include(a => a.Publisher)
                 .OrderByDescending(a => a.DateCreated);
             PagedList<Product> model = new PagedList<Product>(lstLaptop, pageNo, pageSize);
             ViewBag.CurrentPage = pageNo;

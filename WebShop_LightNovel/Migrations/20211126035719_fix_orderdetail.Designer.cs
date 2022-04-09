@@ -126,24 +126,24 @@ namespace WebShopNovel.Migrations
                     b.ToTable("AttributePrices");
                 });
 
-            modelBuilder.Entity("WebShopNovel.Models.Brand", b =>
+            modelBuilder.Entity("WebShopNovel.Models.Publisher", b =>
                 {
-                    b.Property<int>("BrandId")
+                    b.Property<int>("PublisherId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("BrandID")
+                        .HasColumnName("PublisherId")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("BrandName")
+                    b.Property<string>("PublisherName")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Logo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("BrandId");
+                    b.HasKey("PublisherId");
 
-                    b.ToTable("Brand");
+                    b.ToTable("Publisher");
                 });
 
             modelBuilder.Entity("WebShopNovel.Models.Cart", b =>
@@ -410,9 +410,9 @@ namespace WebShopNovel.Migrations
                     b.Property<string>("Alias")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("BrandId")
+                    b.Property<int?>("PublisherId")
                         .HasColumnType("int")
-                        .HasColumnName("BrandID");
+                        .HasColumnName("PublisherId");
 
                     b.Property<int?>("CateId")
                         .HasColumnType("int")
@@ -475,7 +475,7 @@ namespace WebShopNovel.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.HasIndex("BrandId");
+                    b.HasIndex("PublisherId");
 
                     b.HasIndex(new[] { "CateId" }, "IX_Product_CateID");
 
@@ -681,17 +681,17 @@ namespace WebShopNovel.Migrations
 
             modelBuilder.Entity("WebShopNovel.Models.Product", b =>
                 {
-                    b.HasOne("WebShopNovel.Models.Brand", "Brand")
+                    b.HasOne("WebShopNovel.Models.Publisher", "Publisher")
                         .WithMany("Products")
-                        .HasForeignKey("BrandId")
-                        .HasConstraintName("FK_Product_Brand");
+                        .HasForeignKey("PublisherId")
+                        .HasConstraintName("FK_Product_Publisher");
 
                     b.HasOne("WebShopNovel.Models.Category", "Cate")
                         .WithMany("Products")
                         .HasForeignKey("CateId")
                         .HasConstraintName("FK_Product_Category");
 
-                    b.Navigation("Brand");
+                    b.Navigation("Publisher");
 
                     b.Navigation("Cate");
                 });
@@ -701,7 +701,7 @@ namespace WebShopNovel.Migrations
                     b.Navigation("AttributePrices");
                 });
 
-            modelBuilder.Entity("WebShopNovel.Models.Brand", b =>
+            modelBuilder.Entity("WebShopNovel.Models.Publisher", b =>
                 {
                     b.Navigation("Products");
                 });
