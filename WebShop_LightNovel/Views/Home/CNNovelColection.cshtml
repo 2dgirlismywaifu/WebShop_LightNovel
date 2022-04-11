@@ -24,8 +24,8 @@
                             <!-- product -->
                             <div class="col-md-4 col-xs-6">
                                 <div class="product">
-                                    <div class="product-img" style="height:300px; width:263px;">
-                                        <img src="~/images/products/@item.ThumbImg" style="height:263px; width:360px;" alt="@item.Title">
+                                    <div class="product-img" style="height:500px; width:263px;">
+                                        <img src="~/images/products/@item.ThumbImg" style="height:500px; width:360px;" alt="@item.Title">
                                         @if (item.Discount.Value > 0)
                                         {
                                             <div class="product-label">
@@ -33,7 +33,7 @@
                                             </div>
                                         }
                                     </div>
-                                    <div class="product-body">
+                                    <div class="product-body" style="height:160px; width:360px;">
                                         <p class="product-category">@item.Cate.CategoryName</p>
                                         <h3 class="product-name"><a href="@url">@item.ProductName</a></h3>
                                         <h4 class="product-price">@item.SalesPrice.Value.ToString("#,##0") VNĐ<del class="product-old-price" style="margin-left:5px;">@item.Price.Value.ToString("#,##0") VNĐ</del></h4>
